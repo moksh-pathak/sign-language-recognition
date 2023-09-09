@@ -18,12 +18,12 @@ st.markdown("""
 
 @st.cache(allow_output_mutation=True)
 def get_best_model():
-    best_model = keras.models.load_model('models/experiment-dropout-0')
+    best_model = keras.models.load_model('models/experiment-dropout-augmentation-0/saved_model.pb')
     return best_model
 
 @st.cache
 def get_label_binarizer():
-    train_df = pd.read_csv('data/alphabet/sign_mnist_train.csv')
+    train_df = pd.read_csv('sign_mnist_train.csv')
     y = train_df['label']
     label_binarizer = LabelBinarizer()
     y = label_binarizer.fit_transform(y)
